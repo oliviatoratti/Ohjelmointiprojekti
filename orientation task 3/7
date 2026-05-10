@@ -1,0 +1,66 @@
+public class OrientationTask3_7 {
+
+    public static void main(String[] args) {
+
+        EventList list =
+                new EventList();
+
+        ArrivalProcess ap =
+                new ArrivalProcess(
+                        EventType.ARRIVAL);
+
+        ServicePoint sp =
+                new ServicePoint();
+
+        Clock clock =
+                Clock.getInstance();
+
+        // Create events
+        for (int i = 0; i < 10; i++) {
+            ap.generateEvent(list);
+        }
+
+        // Process events
+        while (!list.isEmpty()) {
+
+            Event e =
+                    list.removeNext();
+
+            Customer c =
+                    new Customer();
+
+            c.setStartTime(
+                    (long)e.getTime());
+
+            sp.addToQueue(c);
+        }
+
+        // Move clock forward
+        clock.setTime(
+                clock.getTime() + 5);
+
+        // Remove customers
+        while (true) {
+
+            try {
+
+                Customer c =
+                        sp.removeFromQueue();
+
+                c.setEndTime(
+                        (long)clock.getTime());
+
+                System.out.println(
+                        "Customer "
+                        + c.getId());
+
+                System.out.println(
+                        "Time in system: "
+                        + c.getTimeSpent());
+
+            } catch (Exception e) {
+                break;
+            }
+        }
+    }
+}

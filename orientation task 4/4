@@ -1,0 +1,12 @@
+while simulation is running
+
+    A-phase:
+        move clock to next event time
+
+    B-phase:
+        process all events at this time
+
+    C-phase:
+        start new services if possible
+
+end while

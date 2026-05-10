@@ -1,0 +1,55 @@
+import java.util.Random;
+
+public class ArrivalProcess {
+
+    private Random rand = new Random();
+    private EventType type;
+
+    public ArrivalProcess(EventType type) {
+        this.type = type;
+    }
+
+    public void generateEvent(EventList list) {
+
+        Clock clock =
+                Clock.getInstance();
+
+        double interval =
+                1 + rand.nextInt(5);
+
+        double time =
+                clock.getTime() + interval;
+
+        Event e =
+                new Event(time, type);
+
+        list.add(e);
+
+        clock.setTime(time);
+    }
+}
+
+public class TestArrivalProcess {
+
+    public static void main(String[] args) {
+
+        EventList list =
+                new EventList();
+
+        ArrivalProcess ap =
+                new ArrivalProcess(
+                        EventType.ARRIVAL);
+
+        for (int i = 0; i < 10; i++) {
+
+            ap.generateEvent(list);
+        }
+
+        list.printEvents();
+
+        System.out.println(
+                "Clock time: "
+                + Clock.getInstance()
+                .getTime());
+    }
+}

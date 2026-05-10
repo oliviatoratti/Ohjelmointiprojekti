@@ -1,0 +1,2 @@
+A Singleton object cannot be created outside the class, because the constructor is private.
+Only one object is allowed.

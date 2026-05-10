@@ -1,0 +1,10 @@
+A-phase: Moves the clock to the next event time.
+e.g. clock.setTime(nextEvent.getTime());
+
+B-phase: Processes the event from the event list (entry, exit).
+example: Event e = eventList.removeNext();
+
+C-phase: Checks service points and starts service for waiting customers.
+if (!queue.isEmpty()) {
+    startService();
+}

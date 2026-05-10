@@ -1,0 +1,10 @@
+Customer-based measures:
+-waiting time
+-response time
+-time in system
+
+Service point measures:
+-queue length
+-service time
+-utilization
+-number of served customers

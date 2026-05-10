@@ -1,0 +1,19 @@
+Health Care Clinic:
+Arrival
+   |
+Reception
+   |
+Nurse
+   |
+Doctor
+   |
+Exit
+
+Store:
+Arrival
+   |
+Shopping
+   |
+Cashier
+   |
+Exit

@@ -1,0 +1,20 @@
+Example: Bank
+
+Waiting time:
+-Time customer waits in queue before service.
+
+Service time:
+-Time spent serving the customer.
+
+Response time:
+-Total time in the system:
+-waiting time + service time.
+
+Queue length:
+-Number of customers waiting.
+
+Utilization:
+-How busy the service point is.
+
+Throughput:
+-Number of customers served.
