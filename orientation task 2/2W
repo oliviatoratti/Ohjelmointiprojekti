@@ -1,0 +1,8 @@
+| Time | Event                |
+| ---- | -------------------- |
+| 0.0  | X arrives            |
+| 0.0  | Service starts for X |
+| 1.0  | Y arrives            |
+| 2.0  | X exits              |
+| 2.0  | Service starts for Y |
+| 4.0  | Y exits              |
