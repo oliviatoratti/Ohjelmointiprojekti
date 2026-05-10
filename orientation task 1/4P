@@ -1,0 +1,30 @@
+import java.util.LinkedList;
+
+public class OrientationTask1_4 {
+
+    public static void main(String[] args) {
+
+        LinkedList<Customer> queue =
+                new LinkedList<>();
+
+        Customer c1 = new Customer();
+        c1.setStartTime(System.nanoTime());
+
+        queue.addFirst(c1);
+
+        Customer removed =
+                queue.removeLast();
+
+        removed.setEndTime(System.nanoTime());
+
+        System.out.println(
+                "Customer removed: "
+                + removed.getId());
+
+        System.out.println(
+                "Queue time: "
+                + removed.getTimeSpent());
+    }
+}
+
+

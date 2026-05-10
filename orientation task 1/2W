@@ -1,0 +1,11 @@
+Variability:
+-customer numbers change
+-service times change
+
+Complexity:
+-many customers and cashiers
+-different payment methods
+
+Interconnectedness:
+-long queues affect customers
+-cashier speed affects waiting times
