@@ -3,21 +3,98 @@ public enum EventType {
     EXIT
 }
 
-Explanation
-ARRIVAL = customer enters the system
-EXIT = customer leaves the system
 
-Each Event object contains:
+public class Event implements Comparable<Event> {
 
-event time
-event type
-¨
+    private double time;
+    private EventType type;
 
-Example:
+    public Event(double time, EventType type) {
+        this.time = time;
+        this.type = type;
+    }
 
-Event e = new Event(2.5, EventType.ARRIVAL);
+    public double getTime() {
+        return time;
+    }
 
-This means:
+    public EventType getType() {
+        return type;
+    }
 
-event happens at time 2.5
-event type is ARRIVAL
+    // Compare events by time
+    @Override
+    public int compareTo(Event other) {
+        return Double.compare(this.time, other.time);
+    }
+
+    @Override
+    public String toString() {
+        return "Time: " + time + ", Type: " + type;
+    }
+}
+
+
+import java.util.PriorityQueue;
+
+public class EventList {
+
+    private PriorityQueue<Event> events =
+            new PriorityQueue<>();
+
+    // Add event to list
+    public void add(Event e) {
+        events.add(e);
+    }
+
+    // Remove next event
+    public Event removeNext() {
+        return events.poll();
+    }
+
+    // Print events in correct order
+    public void printEvents() {
+
+        PriorityQueue<Event> copy =
+                new PriorityQueue<>(events);
+
+        while (!copy.isEmpty()) {
+            System.out.println(copy.poll());
+        }
+    }
+}
+
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        EventList list = new EventList();
+
+        // Add events
+        list.add(new Event(4.5, EventType.ARRIVAL));
+        list.add(new Event(1.2, EventType.EXIT));
+        list.add(new Event(3.0, EventType.ARRIVAL));
+
+        // Print all events
+        System.out.println("Event List:");
+        list.printEvents();
+
+        // Remove next event
+        System.out.println("\nNext Event:");
+        System.out.println(list.removeNext());
+    }
+}
+
+
+public class OrientationTask2 {
+    /*
+    Event List:
+    Time: 1.2, Type: EXIT
+    Time: 3.0, Type: ARRIVAL
+    Time: 4.5, Type: ARRIVAL
+    
+    Next Event:
+    Time: 1.2, Type: EXIT
+     */
+}

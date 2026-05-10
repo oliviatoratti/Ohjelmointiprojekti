@@ -1,0 +1,23 @@
+public enum EventType {
+    ARRIVAL,
+    EXIT
+}
+
+Explanation
+ARRIVAL = customer enters the system
+EXIT = customer leaves the system
+
+Each Event object contains:
+
+event time
+event type
+¨
+
+Example:
+
+Event e = new Event(2.5, EventType.ARRIVAL);
+
+This means:
+
+event happens at time 2.5
+event type is ARRIVAL
